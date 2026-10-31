@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="AQUA-CORE — browser-based offline industrial process automation, PLC, SCADA and digital twin simulator.">
+  <title>AQUA-CORE | Industrial Automation Digital Twin</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="appShell" class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div><div class="brand-name">AQUA<span>-</span>CORE</div><div class="brand-subtitle">PROCESS AUTOMATION PLATFORM</div></div>
+      </div>
+      <div class="topbar-center">
+        <span class="status-dot live" id="systemStatusDot"></span>
+        <span id="systemStatusText">SIMULATION RUNNING</span>
+        <span class="top-divider"></span>
+        <span class="mono">PLC-SIM-01</span>
+        <span class="top-divider"></span>
+        <span class="mono">SCAN <b id="scanPeriodLabel">50 ms</b></span>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-button" id="pauseButton" title="Pause / resume simulation" aria-label="Pause simulation">Ⅱ</button>
+        <button class="icon-button" id="speedButton" title="Cycle simulation speed">1×</button>
+        <button class="button button-quiet button-small" id="importSessionButton">Import session</button>
+        <button class="button button-quiet button-small" id="exportSessionButton">Export session</button>
+        <button class="button button-danger button-small" id="estopButton"><span class="estop-icon">!</span> E-STOP</button>
+      </div>
+    </header>
+
+    <div class="system-strip">
+      <div class="strip-left"><span class="env-chip">OFFLINE SIMULATOR</span><span class="strip-text">Process model · SoftPLC runtime · HMI/SCADA · Protocol simulators</span></div>
+      <div class="strip-right"><span>DESIGN BASIS</span><b>Rev 1.0 · 2026-11</b><span class="strip-sep">/</span><span>ENGINEER</span><b>Amirhossein Razeghi · KNTU EE</b></div>
+    </div>
+
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Main navigation">
+        <div class="sidebar-label">OPERATIONS</div>
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span><span>Plant overview</span><kbd>01</kbd></button>
+        <button class="nav-item" data-page="process"><span class="nav-icon">⌘</span><span>Process mimic</span><kbd>02</kbd></button>
+        <button class="nav-item" data-page="equipment"><span class="nav-icon">◉</span><span>Equipment</span><kbd>03</kbd></button>
+        <button class="nav-item" data-page="loops"><span class="nav-icon">∿</span><span>Control loops</span><kbd>04</kbd></button>
+        <button class="nav-item" data-page="packaging"><span class="nav-icon">▤</span><span>Packaging cell</span><kbd>05</kbd></button>
+        <div class="sidebar-label sidebar-label-spaced">SUPERVISION</div>
+        <button class="nav-item" data-page="alarms"><span class="nav-icon">⚑</span><span>Alarms & events</span><span class="nav-count" id="navAlarmCount">0</span></button>
+        <button class="nav-item" data-page="trends"><span class="nav-icon">⌁</span><span>Trends / historian</span></button>
+        <button class="nav-item" data-page="plc"><span class="nav-icon">⌨</span><span>PLC engineering</span></button>
+        <button class="nav-item" data-page="comms"><span class="nav-icon">⇄</span><span>Communications</span></button>
+        <div class="sidebar-label sidebar-label-spaced">ENGINEERING</div>
+        <button class="nav-item" data-page="faults"><span class="nav-icon">⚡</span><span>Fault laboratory</span></button>
+        <button class="nav-item" data-page="diagnostics"><span class="nav-icon">◌</span><span>Diagnostics</span></button>
+        <button class="nav-item" data-page="tests"><span class="nav-icon">✓</span><span>Test bench</span></button>
+        <div class="sidebar-bottom">
+          <div class="sidebar-version">AQUA-CORE <b>v1.0.0</b></div>
+          <div class="sidebar-disclaimer">TRAINING / PORTFOLIO<br>NOT FOR REAL PROCESS CONTROL</div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <div class="page-heading" id="pageHeading">
+          <div><div class="eyebrow">AREA 000 · CENTRAL CONTROL</div><h1>Plant overview</h1><p>Live process state, equipment availability and production performance.</p></div>
+          <div class="heading-actions"><div class="mode-selector" role="group" aria-label="Operating mode"><button data-mode="OFF">OFF</button><button data-mode="AUTO" class="selected">AUTO</button><button data-mode="MANUAL">MANUAL</button></div><span class="clock-display" id="virtualClock">T+00:00:00</span></div>
+        </div>
+        <div class="safety-banner"><span class="safety-symbol">i</span><span><b>SIMULATION ONLY</b> — All values, interlocks, trips and emergency-stop behavior are software models. No physical equipment is connected. No SIL / PL claim.</span><button id="dismissBanner" aria-label="Dismiss notice">×</button></div>
+        <section id="pageContent" aria-live="polite"></section>
+      </main>
+    </div>
+    <footer class="statusbar">
+      <div><span class="status-dot live"></span><span id="footerRuntime">RUNTIME READY</span><span class="statusbar-divider"></span><span id="footerCycle">SCAN 0</span><span class="statusbar-divider"></span><span id="footerDrift">DRIFT 0.0 ms</span></div>
+      <div><span id="footerStorage">MEMORY BUFFER</span><span class="statusbar-divider"></span><span>LOCAL BROWSER SESSION</span></div>
+    </footer>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <input id="sessionImportInput" type="file" accept="application/json,.json" hidden>
+
+  <script src="config/plant-config.js"></script>
+  <script src="config/tag-database.js"></script>
+  <script src="js/core/event-bus.js"></script>
+  <script src="js/core/tag-database.js"></script>
+  <script src="js/core/clock.js"></script>
+  <script src="js/core/command-arbiter.js"></script>
+  <script src="js/process/equipment-models.js"></script>
+  <script src="js/process/process-engine.js"></script>
+  <script src="js/instrumentation/instrumentation.js"></script>
+  <script src="js/plc/function-blocks.js"></script>
+  <script src="js/plc/pid-controller.js"></script>
+  <script src="js/plc/st-interpreter.js"></script>
+  <script src="js/plc/st-program.js"></script>
+  <script src="js/plc/sequences.js"></script>
+  <script src="js/plc/scan-engine.js"></script>
+  <script src="js/scada/alarm-manager.js"></script>
+  <script src="js/scada/historian.js"></script>
+  <script src="js/communications/modbus-simulator.js"></script>
+  <script src="js/communications/opc-model.js"></script>
+  <script src="js/digital-twin/isometric-renderer.js"></script>
+  <script src="js/packaging/packaging-cell.js"></script>
+  <script src="js/testing/fault-injection.js"></script>
+  <script src="js/testing/test-runner.js"></script>
+  <script src="js/scada/ui.js"></script>
+  <script src="js/boot.js"></script>
+</body>
+</html>
