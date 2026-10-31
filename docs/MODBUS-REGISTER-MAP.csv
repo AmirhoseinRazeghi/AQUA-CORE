@@ -1,0 +1,39 @@
+Address,Area,Name,Data type,Access,Scaling or encoding,Notes
+40001,Holding,Operating mode command,UINT16,R/W,0 OFF; 1 AUTO; 2 MANUAL,Command queued to PLC scan
+40002,Holding,Command word,UINT16,R/W,bit0 Start; bit1 Stop; bit2 Reset; bit3 Ack,Command bitmap
+40003,Holding,Last command source,UINT16,R/O,0 HMI; 1 Modbus; 2 Test harness,Reserved status field in current demo
+40004,Holding,PIC-401 setpoint,UINT16,R/W,0.01 bar/count,Range 0.50 to 5.50 bar
+40005,Holding,LIC-101 setpoint,UINT16,R/W,0.1 percent/count,Range 10 to 90 percent
+40006,Holding,FIC-201 setpoint,UINT16,R/W,0.01 m3/h/count,Range 0 to 10 m3/h
+40007,Holding,AIC-301 setpoint,UINT16,R/W,0.01 pH/count,Range 6.80 to 7.60
+40008,Holding,Backwash request,UINT16,R/W,0 none; 1 filter A; 2 filter B,Command
+40009,Holding,Packaging enable,UINT16,R/W,0 disable; 1 enable,Command
+40010,Holding,VFD speed limit,UINT16,R/W,0.1 percent/count,Range 0 to 100 percent
+40011,Holding,HMI heartbeat,UINT16,R/W,Unsigned counter,Stored value only
+40012,Holding,Fault injection control,UINT16,R/W,Reserved,Future test-mode gating
+30001,Input,PLC state,UINT16,R/O,0 off; 1 active; 2 tripped,Live value
+30002,Input,Scan counter low,UINT16,R/O,Counter low word,Live value
+30003,Input,Last scan runtime,UINT16,R/O,Milliseconds,Live value
+30004,Input,TK-101 level,UINT16,R/O,0.1 percent/count,Live value
+30005,Input,FIT-101 flow,UINT16,R/O,0.01 m3/h/count,Live value
+30006,Input,PIT-102 pressure,UINT16,R/O,0.01 bar/count,Live value
+30007,Input,DPIT-201A,UINT16,R/O,0.01 bar/count,Live value
+30008,Input,DPIT-201B,UINT16,R/O,0.01 bar/count,Live value
+30009,Input,AIT-301 pH,UINT16,R/O,0.01 pH/count,Live value
+30010,Input,TK-401 level,UINT16,R/O,0.1 percent/count,Live value
+30011,Input,FIT-401 flow,UINT16,R/O,0.01 m3/h/count,Live value
+30012,Input,PIT-401 pressure,UINT16,R/O,0.01 bar/count,Live value
+30013,Input,AIT-401 conductivity,UINT16,R/O,uS/cm,Live value
+30014,Input,Pump available mask,UINT16,R/O,bit0 P101A; bit1 P101B; bit2 P401A; bit3 P401B; bit4 P401C,Bitfield
+30015,Input,Active alarm count,UINT16,R/O,Count,Live value
+30016,Input,Unacknowledged alarm count,UINT16,R/O,Count,Live value
+30017,Input,Filter A state,UINT16,R/O,0 service; 1 isolated; 2 precheck; 3 backwash; 4 rinse; 5 return; 6 fault,Enum
+30018,Input,Filter B state,UINT16,R/O,Same as 30017,Enum
+30019,Input,Accepted packages,UINT16,R/O,Low 16 bits,Counter
+30020,Input,Rejected packages,UINT16,R/O,Low 16 bits,Counter
+30021,Input,Quality flags,UINT16,R/O,Bitfield,Proxy quality summary
+30022,Input,E-STOP state,UINT16,R/O,0 normal; 1 active; 2 reset required,Live value
+30023,Input,Communication health,UINT16,R/O,0 simulated connected; 1 simulated disconnected,Model status
+30024,Input,Historian buffer indicator,UINT16,R/O,0.1 percent/count,Current ratio proxy
+1..12,Coils,Status and commands,BOOL,R/W or R/O,See communications document,Coils 9-12 are command pulses
+10001..10010,Discrete,Field status,BOOL,R/O,See communications document,Read-only status inputs

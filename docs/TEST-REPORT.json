@@ -1,0 +1,257 @@
+{
+  "project": "AQUA-CORE",
+  "generatedAt": "2026-10-31T21:21:55.756902+00:00",
+  "summary": {
+    "total": 31,
+    "pass": 31,
+    "fail": 0,
+    "rate": 100
+  },
+  "routes": {
+    "overview": "RAW TANK \u00b7 TK-101 | 55.0% | LIT-101 \u00b7 | GOOD | CLEARWELL \u00b7 TK-401 | 56.0% | LIT-401 \u00b7 | GOOD | HEADER PRESSURE | 0.60b",
+    "process": "AQUA-CORE PROCESS MODEL | RAW INTAKE \u2192 FILTRATION \u2192 DOSING \u2192 CLEARWELL \u2192 DISTRIBUTION | STATE SYNCHRONIZ",
+    "equipment": "5 PUMPS | 2 FILTERS | 3 VALVES | MANUAL JOG REQUIRES MANUAL MODE | INTAKE / DISTRIBUTION PUMPS | P-101A \u00b7 Inta",
+    "loops": "LIC101 | Raw tank level control | AUTO | PV | 55.01 | SP | 55.00 | OUT | 0.0% | SETPOINT (%) | CONTROLLER MODE | AUTO | MANU",
+    "packaging": "CELL STATE | WAIT_BOTTLE | SEQUENCE | ACCEPTED | 0bottles | GOOD PRODUCT | REJECTED | 0bottles | QUALITY DIVERT | CURR",
+    "alarms": "Active | Unacknowledged | Event history | Acknowledge all | ALARM & EVENT SUMMARY | PRIORITIZED ALARM LIFECYCL",
+    "trends": "PROCESS TREND | SELECT A TAG AND REVIEW THE LAST SAMPLES | TAG | LIT-101 | FIT-101 | PIT-401 | AIT-301 | DPIT-201A",
+    "plc": "STRUCTURED TEXT \u00b7 PRG_INTAKE | SUPPORTED LANGUAGE SUBSET \u00b7 COMPILE BEFORE LOAD | Compile & load | Restore ",
+    "comms": "MODBUS HOLDING REGISTERS | 4xxxx \u00b7 READ / WRITE MODEL | In-memory register model and frame codec only. T",
+    "faults": "0 ACTIVE FAULTS | Clear all faults | Export fault log | Fault injection changes modeled signals or equipme",
+    "diagnostics": "PLC SCANS | 39cycles | TARGET 50 ms | LAST SCAN | 0.200ms | WALL-CLOCK DIAGNOSTIC | SCAN OVERRUNS | 0events | CATCH-",
+    "tests": "TEST CASES | 0tests | CURRENT REPORT | PASSED | 0pass | REGRESSION | FAILED | 0fail | TARGET ZERO | PASS RATE | 0.0% | EXE"
+  },
+  "headerControls": {
+    "pauseResume": "PASS",
+    "speedControl": "PASS",
+    "simulatedEStopAndReset": "PASS"
+  },
+  "sourceChecks": {
+    "external_script_or_style": false,
+    "runtime_backend": false
+  },
+  "renderer": {
+    "webgl": false,
+    "fallback": true
+  },
+  "browserErrors": [],
+  "results": [
+    {
+      "id": "UT-001",
+      "name": "Tank mass balance",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-002",
+      "name": "Tank overflow clamp and flag",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-003",
+      "name": "Pump ramp limit",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-004",
+      "name": "Pump trip removes run feedback",
+      "status": "PASS",
+      "duration": 0.10000000009313226,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-005",
+      "name": "TON timer",
+      "status": "PASS",
+      "duration": 0.10000000009313226,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-006",
+      "name": "R_TRIG one-scan pulse",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-007",
+      "name": "PID output saturation",
+      "status": "PASS",
+      "duration": 0.09999999962747097,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-008",
+      "name": "ST parser and interpreter",
+      "status": "PASS",
+      "duration": 0.20000000018626451,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-009",
+      "name": "ST rejects unsupported syntax",
+      "status": "PASS",
+      "duration": 0.20000000018626451,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-001",
+      "name": "Modbus FC03 register read",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-002",
+      "name": "Modbus illegal address exception",
+      "status": "PASS",
+      "duration": 0.09999999962747097,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-003",
+      "name": "Modbus read-only write rejection",
+      "status": "PASS",
+      "duration": 0.10000000009313226,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-004",
+      "name": "OPC-shaped node read",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "IT-001",
+      "name": "E-STOP latch and no auto restart",
+      "status": "PASS",
+      "duration": 0.7000000001862645,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "IT-002",
+      "name": "Command arbiter rejects unsafe start",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-005",
+      "name": "MBAP codec length",
+      "status": "PASS",
+      "duration": 0.19999999972060323,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-006",
+      "name": "Modbus input register block",
+      "status": "PASS",
+      "duration": 1.400000000372529,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-007",
+      "name": "Modbus setpoint range validation",
+      "status": "PASS",
+      "duration": 0.19999999972060323,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-008",
+      "name": "Modbus multi-write atomic validation",
+      "status": "PASS",
+      "duration": 0.10000000009313226,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-009",
+      "name": "Modbus coils and discrete inputs",
+      "status": "PASS",
+      "duration": 0.10000000009313226,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "IT-003",
+      "name": "E-STOP reset command is permitted while trip latched",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "IT-004",
+      "name": "Fault injection mapping is complete",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-010",
+      "name": "CTU counts rising edges only",
+      "status": "PASS",
+      "duration": 0.10000000009313226,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-011",
+      "name": "Filter differential pressure responds to loading",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-012",
+      "name": "Valve travel is rate-limited",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-013",
+      "name": "PID manual output is bounded",
+      "status": "PASS",
+      "duration": 0.09999999962747097,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "UT-014",
+      "name": "Clearing pump fault restores availability",
+      "status": "PASS",
+      "duration": 0.10000000009313226,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-010",
+      "name": "Modbus speed limit command is supported",
+      "status": "PASS",
+      "duration": 0.2999999998137355,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "PT-011",
+      "name": "OPC browse exposes measurement variables",
+      "status": "PASS",
+      "duration": 0.3000000002793968,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "IT-005",
+      "name": "Fault injection records an auditable lifecycle",
+      "status": "PASS",
+      "duration": 0.19999999972060323,
+      "message": "All assertions passed"
+    },
+    {
+      "id": "IT-006",
+      "name": "E-STOP scan inhibits all motion outputs",
+      "status": "PASS",
+      "duration": 0.7000000001862645,
+      "message": "All assertions passed"
+    }
+  ]
+}

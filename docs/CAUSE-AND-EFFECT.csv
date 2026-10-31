@@ -1,0 +1,18 @@
+Cause,Effect,Operator response,Implementation boundary
+TK-101 low-low,Stop intake pumps,Restore modeled raw level and verify LIT-101,Software process interlock
+TK-101 high-high,Stop intake pumps,Check inflow and level signal,Software process interlock
+TK-401 low-low,Stop distribution pumps,Restore accepted-water inventory,Software process interlock
+TK-401 high-high,Inhibit upstream feed,Review distribution demand,Simulated level protection
+P-101A fault,Select P-101B if healthy,Inspect fault injection and acknowledge alarm,Modeled duty/standby logic
+P-101A and P-101B faults,Latch modeled major trip,Clear faults and reset trip,Not a safety-rated trip
+P-401A fault,Start modeled lead/lag changeover,Check availability and header response,Sequence approximation
+All distribution pumps faulted,Latch modeled major trip,Restore at least one available pump,Not a safety-rated trip
+Header pressure above high limit,Stop distribution pumps and latch trip,Check PIC-401 demand and simulated pressure,Software interlock
+AIT-301 bad quality,Inhibit dosing and divert product,Restore analyzer quality,Signal-quality model
+AIT-301 outside pH band,Divert product to reject tank,Review dose loop and disturbance,Quality proxy only
+Filter differential pressure high,Raise warning / backwash request,Verify alternate filter in service,Model threshold
+Filter differential pressure trip,Remove filter from service,Check blockage and run wash sequence,Model threshold
+Packaging guard open,Inhibit packaging motion,Close simulated guard and reset cell,Software interlock only
+Conveyor jam,Enter packaging FAULT state,Clear injected jam and reset,Software state machine
+E-STOP active,Inhibit normal outputs and latch trip,Clear cause then reset E-STOP and trip manually,Not safety-rated hardware
+PIT-401 stale,Hold last bounded PID output,Restore modeled signal quality,Not a real network watchdog

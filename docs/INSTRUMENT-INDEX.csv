@@ -1,0 +1,30 @@
+﻿Tag,Description,Signal type,Engineering unit,Configured range,Typical modeled function
+LIT-101,Raw tank level,AI,%,0..100,Measured process variable / analog instrument
+FIT-101,Intake flow,AI,m³/h,0..12,Measured process variable / analog instrument
+PIT-102,Intake discharge pressure,AI,bar,0..10,Measured process variable / analog instrument
+DPIT-201A,Filter A differential pressure,AI,bar,0..2,Measured process variable / analog instrument
+DPIT-201B,Filter B differential pressure,AI,bar,0..2,Measured process variable / analog instrument
+AIT-301,Dosing outlet pH,AI,pH,0..14,Measured process variable / analog instrument
+LIT-401,Clearwell level,AI,%,0..100,Measured process variable / analog instrument
+FIT-401,Product header flow,AI,m³/h,0..12,Measured process variable / analog instrument
+PIT-401,Distribution header pressure,AI,bar,0..10,Measured process variable / analog instrument
+AIT-401,Conductivity proxy,AI,µS/cm,0..2000,Measured process variable / analog instrument
+IIT-101A,P-101A motor current proxy,AI,A,0..20,Measured process variable / analog instrument
+IIT-401A,P-401A motor current proxy,AI,A,0..20,Measured process variable / analog instrument
+ZSH-101,Raw tank high-high switch,DI,bool,0/1,Discrete status / limit / permissive input
+ZSL-101,Raw tank low-low switch,DI,bool,0/1,Discrete status / limit / permissive input
+P101A_RUN_FB,P-101A running feedback,DI,bool,0/1,Discrete status / limit / permissive input
+P101A_FLT_FB,P-101A drive fault,DI,bool,0/1,Discrete status / limit / permissive input
+P101B_RUN_FB,P-101B running feedback,DI,bool,0/1,Discrete status / limit / permissive input
+P101B_FLT_FB,P-101B drive fault,DI,bool,0/1,Discrete status / limit / permissive input
+P401A_RUN_FB,P-401A running feedback,DI,bool,0/1,Discrete status / limit / permissive input
+P401A_FLT_FB,P-401A drive fault,DI,bool,0/1,Discrete status / limit / permissive input
+P401B_RUN_FB,P-401B running feedback,DI,bool,0/1,Discrete status / limit / permissive input
+P401B_FLT_FB,P-401B drive fault,DI,bool,0/1,Discrete status / limit / permissive input
+P401C_RUN_FB,P-401C running feedback,DI,bool,0/1,Discrete status / limit / permissive input
+P401C_FLT_FB,P-401C drive fault,DI,bool,0/1,Discrete status / limit / permissive input
+PE501_BOTTLE,Bottle present sensor,DI,bool,0/1,Discrete status / limit / permissive input
+PE502_FILL_POS,Bottle at fill position,DI,bool,0/1,Discrete status / limit / permissive input
+PE503_CAP_POS,Bottle at capper,DI,bool,0/1,Discrete status / limit / permissive input
+GS501_GUARD,Packaging guard closed,DI,bool,0/1,Discrete status / limit / permissive input
+ES001_LOOP,Plant E-stop loop healthy,DI,bool,0/1,Discrete status / limit / permissive input
